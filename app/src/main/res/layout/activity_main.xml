@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:padding="15dp"
+    tools:context=".MainActivity">
+
+    <!--adicionar um backgroud a activity-->
+    <!--android:background="@drawable/background"-->
+
+    <!--Criar uma margem movendo apenas os elementos, mantendo background-->
+    <!--android:padding="15dp"-->
+
+    <TextView
+        android:id="@+id/text_today"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="11/07/19" />
+
+    <!--Alinhar o texto detro de se mesmo-->
+    <!--android:gravity="center"-->
+
+    <View
+        android:id="@+id/linha"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/text_today"
+        android:background="@color/colorAccent" />
+
+    <!--posiciona a View depois do TextView no RelativeLayout-->
+    <!--android:layout_below="@+id/text_today"-->
+
+    <TextView
+        android:id="@+id/text_label_days_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_today"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="160dp"
+        android:text="@string/dias_restantes_para_o_final_do_ano" />
+
+    <!--Alinha o elemento no centro horizontal do pai
+    android:layout_centerHorizontal="true"-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_label_days_left"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorCiano"
+        android:textSize="30sp"
+        android:layout_marginTop="16dp"
+        android:text="365 dias" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="SIM/NAO/NAO CONFIRMADO" />
+
+    <!--Alinha o botao na parte inferior do pai
+        android:layout_alignParentBottom="true"-->
+
+</RelativeLayout>
