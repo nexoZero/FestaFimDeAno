@@ -22,8 +22,8 @@
         android:id="@+id/linha"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="10dp"
         android:layout_below="@+id/text_participar"
+        android:layout_marginTop="10dp"
         android:background="@color/colorCiano" />
 
     <CheckBox
