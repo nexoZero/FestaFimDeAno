@@ -22,8 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Adicionar um evento quando o botão for pressionado
         Double real;
-        Double dolar;
-        Double se;
+        String lua;
         this.mViewHolder.btnConfirm.setOnClickListener(this);
     }
 
