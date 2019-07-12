@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.mViewHolder.btnConfirm = findViewById(R.id.btn_confirmar);
 
         //Adicionar um evento quando o botão for pressionado
+        Double real;
         this.mViewHolder.btnConfirm.setOnClickListener(this);
     }
 
