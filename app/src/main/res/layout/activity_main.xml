@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:padding="15dp"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
     <!--adicionar um backgroud a activity-->
     <!--android:background="@drawable/background"-->

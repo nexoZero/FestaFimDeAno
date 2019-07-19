@@ -1,7 +1,9 @@
-package android.festafimdeano;
+package android.festafimdeano.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.festafimdeano.R;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,17 +23,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.mViewHolder.btnConfirm = findViewById(R.id.btn_confirmar);
 
         //Adicionar um evento quando o botão for pressionado
-        Double real;
-        String lua;
         this.mViewHolder.btnConfirm.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-
+        if (view.getId() == R.id.btn_confirmar) {
+            //Abrir a nova activity
+            Intent intent = new Intent(this, android.festafimdeano.view.DetailsActivity.class);
+            startActivity(intent);
+        }
     }
 
-    private static class ViewHolder{
+    private static class ViewHolder {
         TextView textToday;
         TextView textDaysLefts;
         Button btnConfirm;

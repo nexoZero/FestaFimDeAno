@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:padding="30dp"
-    tools:context=".detailsActivity">
+    tools:context=".view.DetailsActivity">
+
 
     <TextView
         android:id="@+id/text_participar"
@@ -27,6 +28,7 @@
         android:background="@color/colorCiano" />
 
     <CheckBox
+        android:id="@+id/check_participacao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/text_participar"

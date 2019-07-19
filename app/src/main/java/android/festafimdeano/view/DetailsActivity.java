@@ -1,10 +1,12 @@
-package android.festafimdeano;
+package android.festafimdeano.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.festafimdeano.R;
 import android.os.Bundle;
 
-public class detailsActivity extends AppCompatActivity {
+public class DetailsActivity extends AppCompatActivity {
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
