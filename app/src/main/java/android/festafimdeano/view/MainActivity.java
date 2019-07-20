@@ -9,9 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ViewHolder mViewHolder = new ViewHolder();
+
+    //Formata a data em DIA/MES/ANO
+    private static SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +30,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Adicionar um evento quando o botão for pressionado
         this.mViewHolder.btnConfirm.setOnClickListener(this);
+
+        //Definer a data do dia atual
+        this.mViewHolder.textToday.setText(SIMPLE_DATE_FORMAT.format(Calendar.getInstance().getTime()));
+        String dayLeft = String.format("%s %s", String.valueOf(this.getDaysLeft()), getString(R.string.days));
+        this.mViewHolder.textDaysLefts.setText(dayLeft);
+
     }
 
     @Override
@@ -33,6 +45,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(this, android.festafimdeano.view.DetailsActivity.class);
             startActivity(intent);
         }
+    }
+
+    private int getDaysLeft(){
+        //Pega a data de hoje
+        Calendar calendarToday = Calendar.getInstance();
+        int today = calendarToday.get(Calendar.DAY_OF_YEAR);
+
+        //Pega o numero maximo de dias do ano
+        Calendar calendarLastDay = Calendar.getInstance();
+        int dayMax = calendarLastDay.getActualMaximum(Calendar.DAY_OF_YEAR);
+
+        return dayMax-today;
     }
 
     private static class ViewHolder {
