@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.festafimdeano.R;
+import android.festafimdeano.constant.FimdeAnoConstant;
+import android.festafimdeano.data.SecurityPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +17,7 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ViewHolder mViewHolder = new ViewHolder();
+    private SecurityPreferences mSecurityPreferences;
 
     //Formata a data em DIA/MES/ANO
     private static SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.mSecurityPreferences = new SecurityPreferences(this);
 
         this.mViewHolder.textToday = findViewById(R.id.text_today);
         this.mViewHolder.textDaysLefts = findViewById(R.id.text_label_days_left);
@@ -35,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.mViewHolder.textToday.setText(SIMPLE_DATE_FORMAT.format(Calendar.getInstance().getTime()));
         String dayLeft = String.format("%s %s", String.valueOf(this.getDaysLeft()), getString(R.string.days));
         this.mViewHolder.textDaysLefts.setText(dayLeft);
+
+        this.verifyPresence();
 
     }
 
@@ -57,6 +63,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int dayMax = calendarLastDay.getActualMaximum(Calendar.DAY_OF_YEAR);
 
         return dayMax-today;
+    }
+
+    private void verifyPresence(){
+        //resgata o valor salvo para check_participacao
+        String presence = this.mSecurityPreferences.getStorePreferences(FimdeAnoConstant.PRENSENCE_KEY);
+            if(presence.equals("")){
+                this.mViewHolder.btnConfirm.setText(R.string.nao_confirmado);
+            } else if(presence.equals(FimdeAnoConstant.PRENSENCE_YES)){
+                this.mViewHolder.btnConfirm.setText(R.string.sim);
+            } else {
+                this.mViewHolder.btnConfirm.setText(R.string.nao);
+            }
     }
 
     private static class ViewHolder {

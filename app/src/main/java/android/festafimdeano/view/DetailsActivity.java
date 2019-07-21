@@ -21,6 +21,8 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         this.mViewHolder.checkParticipacao = findViewById(R.id.check_participacao);
         this.mSecurityPreferences = new SecurityPreferences(this);
 
+        this.mViewHolder.checkParticipacao.setOnClickListener(this);
+
     }
 
     @Override
