@@ -40,8 +40,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String dayLeft = String.format("%s %s", String.valueOf(this.getDaysLeft()), getString(R.string.days));
         this.mViewHolder.textDaysLefts.setText(dayLeft);
 
-        this.verifyPresence();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        this.verifyPresence();
     }
 
     @Override
