@@ -51,8 +51,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.btn_confirmar) {
+            String presence = this.mSecurityPreferences.getStorePreferences(FimdeAnoConstant.PRENSENCE_KEY);
             //Abrir a nova activity
             Intent intent = new Intent(this, android.festafimdeano.view.DetailsActivity.class);
+            intent.putExtra(FimdeAnoConstant.PRENSENCE_KEY, presence);
             startActivity(intent);
         }
     }

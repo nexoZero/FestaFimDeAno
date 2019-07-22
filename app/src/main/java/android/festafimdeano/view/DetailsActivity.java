@@ -23,6 +23,7 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
 
         this.mViewHolder.checkParticipacao.setOnClickListener(this);
 
+        this.loadDataFromActivity();
     }
 
     @Override
@@ -34,6 +35,18 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
             } else {
                 //Salvar ausencia
                 this.mSecurityPreferences.storePreferences(FimdeAnoConstant.PRENSENCE_KEY, FimdeAnoConstant.PRENSENCE_NO);
+            }
+        }
+    }
+
+    private void loadDataFromActivity(){
+        Bundle extras = getIntent().getExtras();
+        if(extras != null){
+            String presence = extras.getString(FimdeAnoConstant.PRENSENCE_KEY);
+            if(presence != null && presence.equals(FimdeAnoConstant.PRENSENCE_YES)){
+                this.mViewHolder.checkParticipacao.setChecked(true);
+            }else{
+                this.mViewHolder.checkParticipacao.setChecked(false);
             }
         }
     }
